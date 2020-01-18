@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2011 Bluetooth SIG, Inc. All rights reserved. -->
+<Descriptor xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/descriptor.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="org.bluetooth.descriptor.gatt.characteristic_presentation_format" uuid="2904" name="Characteristic Presentation Format">
+  <InformativeText>
+    <Abstract>
+        The Characteristic Presentation Format descriptor defines the format of the Characteristic Value.            
+		</Abstract>
+    <InformativeDisclaimer/>
+    <Summary>
+        One or more Characteristic Presentation Format descriptors may be present. If multiple of these descriptors are present, then a Aggregate Formate descriptor is present.
+        This descriptor is read only and does not require authentication or authorization to read.
+        This descriptor is composed of five parts: format, exponent, unit, name space and description.
+        The Format field determines how a single value contained in the Characteristic Value is formatted.
+        The Exponent field is used with integer data types to determine how the Characteristic Value is further formatted.
+        The actual value = Characteristic Value * 10^Exponent.            
+		</Summary>
+    <Examples>
+      <Example>
+            When encoding an IPv4 address, the uint32 Format type is used.
+		</Example>
+      <Example>
+            When encoding an IPv6 address, the uint128 Format type is used.
+		</Example>
+      <Example>
+            When encoding a Bluetooth address (BD_ADDR), the uint48 Format type is used.
+		</Example>
+      <Example>
+            For a Characteristic Value of 23 and an Exponent of 2, the actual value is 2300
+		</Example>
+      <Example>
+            For a Characteristic Value of 3892 and an Exponent of -3, the actual value is 3.892
+		</Example>
+    </Examples>
+  </InformativeText>
+  <Value>
+    <Field name="Format">
+      <Requirement>Mandatory</Requirement>
+      <Format>8bit</Format>
+      <Minimum>0</Minimum>
+      <Maximum>27</Maximum>
+      <Enumerations>
+        <Enumeration key="0" value="Reserved For Future Use" />
+        <Enumeration key="1" value="Boolean" />
+        <Enumeration key="2" value="unsigned 2-bit integer" />
+        <Enumeration key="3" value="unsigned 4-bit integer" />
+        <Enumeration key="4" value="unsigned 8-bit integer" />
+        <Enumeration key="5" value="unsigned 12-bit integer" />
+        <Enumeration key="6" value="unsigned 16-bit integer" />
+        <Enumeration key="7" value="unsigned 24-bit integer" />
+        <Enumeration key="8" value="unsigned 32-bit integer" />
+        <Enumeration key="9" value="unsigned 48-bit integer" />
+        <Enumeration key="10" value="unsigned 64-bit integer" />
+        <Enumeration key="11" value="unsigned 128-bit integer" />
+        <Enumeration key="12" value="signed 8-bit integer" />
+        <Enumeration key="13" value="signed 12-bit integer" />
+        <Enumeration key="14" value="signed 16-bit integer" />
+        <Enumeration key="15" value="signed 24-bit integer" />
+        <Enumeration key="16" value="signed 32-bit integer" />
+        <Enumeration key="17" value="signed 48-bit integer" />
+        <Enumeration key="18" value="signed 64-bit integer" />
+        <Enumeration key="19" value="signed 128-bit integer" />
+        <Enumeration key="20" value="IEEE-754 32-bit floating point" />
+        <Enumeration key="21" value="IEEE-754 64-bit floating point" />
+        <Enumeration key="22" value="IEEE-11073 16-bit SFLOAT" />
+        <Enumeration key="23" value="IEEE-11073 32-bit FLOAT" />
+        <Enumeration key="24" value="IEEE-20601 format" />
+        <Enumeration key="25" value="UTF-8 string" />
+        <Enumeration key="26" value="UTF-16 string" />
+        <Enumeration key="27" value="Opaque Structure" />
+        <Reserved start="28" end="255"></Reserved>
+      </Enumerations>
+    </Field>
+    <Field name="Exponent">
+      <Requirement>Mandatory</Requirement>
+      <Format>sint8</Format>
+    </Field>
+    <Field name="Unit">
+      <InformativeText>
+        The Unit is a UUID.
+	  </InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint16</Format>
+	  <Enumerations>
+        <Enumeration key="0x0000" value="n/a" />
+		<Enumeration key="0x2733" value="absorbed dose (gray)" />
+		<Enumeration key="0x2754" value="absorbed dose rate (gray per second)" />
+		<Enumeration key="0x2713" value="acceleration (metres per second squared)" />
+		<Enumeration key="0x2732" value="activity referred to a radionuclide (becquerel)" />
+		<Enumeration key="0x271A" value="amount concentration (mole per cubic metre)" />
+		<Enumeration key="0x2706" value="amount of substance (mole)" />
+		<Enumeration key="0x2744" value="angular acceleration (radian per second squared)" />
+		<Enumeration key="0x2743" value="angular velocity (radian per second)" />
+		<Enumeration key="0x27A8" value="angular velocity (revolution per minute)" />
+		<Enumeration key="0x2784" value="area (barn)" />
+		<Enumeration key="0x2766" value="area (hectare)" />
+		<Enumeration key="0x2710" value="area (square metres)" />
+		<Enumeration key="0x2729" value="capacitance (farad)" />
+		<Enumeration key="0x2735" value="catalytic activity (katal)" />
+		<Enumeration key="0x2757" value="catalytic activity concentration (katal per cubic metre)" />
+		<Enumeration key="0x272F" value="Celsius temperature (degree Celsius)" />
+		<Enumeration key="0x27B5" value="concentration (count per cubic metre)" />
+        <Enumeration key="0x27C5" value="concentration (parts per billion)" />
+        <Enumeration key="0x27C4" value="concentration (parts per million)" />
+		<Enumeration key="0x2718" value="current density (ampere per square metre)" />
+		<Enumeration key="0x2715" value="density (kilogram per cubic metre)" />
+		<Enumeration key="0x2734" value="dose equivalent (sievert)" />
+		<Enumeration key="0x2740" value="dynamic viscosity (pascal second)" />
+		<Enumeration key="0x27B0" value="electric charge (ampere hours)" />
+		<Enumeration key="0x2727" value="electric charge (coulomb)" />
+		<Enumeration key="0x274C" value="electric charge density (coulomb per cubic metre)" />
+		<Enumeration key="0x272B" value="electric conductance (siemens)" />
+		<Enumeration key="0x2704" value="electric current (ampere)" />
+		<Enumeration key="0x274B" value="electric field strength (volt per metre)" />
+		<Enumeration key="0x274E" value="electric flux density (coulomb per square metre)" />
+		<Enumeration key="0x2728" value="electric potential difference (volt)" />
+		<Enumeration key="0x272A" value="electric resistance (ohm)" />
+		<Enumeration key="0x27A9" value="energy (gram calorie)" />
+		<Enumeration key="0x2725" value="energy (joule)" />
+		<Enumeration key="0x27AA" value="energy (kilogram calorie)" />
+		<Enumeration key="0x27AB" value="energy (kilowatt hour)" />
+		<Enumeration key="0x274A" value="energy density (joule per cubic metre)" />
+		<Enumeration key="0x2753" value="exposure (coulomb per kilogram)" />
+		<Enumeration key="0x2723" value="force (newton)" />
+		<Enumeration key="0x2722" value="frequency (hertz)" />
+		<Enumeration key="0x2746" value="heat capacity (joule per kelvin)" />
+		<Enumeration key="0x2745" value="heat flux density (watt per square metre)" />
+		<Enumeration key="0x2731" value="illuminance (lux)" />
+		<Enumeration key="0x272E" value="inductance (henry)" />
+		<Enumeration key="0x27B6" value="irradiance (watt per square metre)" />
+		<Enumeration key="0x27A3" value="length (foot)" />
+		<Enumeration key="0x27A2" value="length (inch)" />
+		<Enumeration key="0x2701" value="length (metre)" />
+		<Enumeration key="0x27A4" value="length (mile)" />
+		<Enumeration key="0x2783" value="length (nautical mile)" />
+		<Enumeration key="0x27A1" value="length (parsec)" />
+		<Enumeration key="0x27A0" value="length (yard)" />
+		<Enumeration key="0x2782" value="length (angstrom)" />
+		<Enumeration key="0x2787" value="logarithmic radio quantity (bel)" />
+		<Enumeration key="0x2786" value="logarithmic radio quantity (neper)" />
+		<Enumeration key="0x271C" value="luminance (candela per square metre)" />
+        <Enumeration key="0x27BE" value="luminous efficacy (lumen per watt)" />
+        <Enumeration key="0x27BF" value="luminous energy (lumen hour)" />
+        <Enumeration key="0x27C0" value="luminous exposure (lux hour)" />
+		<Enumeration key="0x2730" value="luminous flux (lumen)" />
+		<Enumeration key="0x2707" value="luminous intensity (candela)" />
+		<Enumeration key="0x2719" value="magnetic field strength (ampere per metre)" />
+		<Enumeration key="0x272C" value="magnetic flux (weber)" />
+		<Enumeration key="0x272D" value="magnetic flux density (tesla)" />
+		<Enumeration key="0x2702" value="mass (kilogram)" />
+		<Enumeration key="0x27B8" value="mass (pound)" />
+		<Enumeration key="0x2768" value="mass (tonne)" />
+		<Enumeration key="0x271B" value="mass concentration (kilogram per cubic metre)" />
+		<Enumeration key="0x27B1" value="mass density (milligram per decilitre)" />
+		<Enumeration key="0x27B2" value="mass density (millimole per litre)" />
+        <Enumeration key="0x27C1" value="mass flow (gram per second)" />
+        <Enumeration key="0x27B9" value="metabolic equivalent" />
+		<Enumeration key="0x27B7" value="milliliter (per kilogram per minute)" />
+		<Enumeration key="0x2751" value="molar energy (joule per mole)" />
+		<Enumeration key="0x2752" value="molar entropy (joule per mole kelvin)" />
+		<Enumeration key="0x2741" value="moment of force (newton metre)" />
+        <Enumeration key="0x27BD" value="pace (kilometre per minute)" />
+		<Enumeration key="0x27AE" value="per mille" />
+		<Enumeration key="0x27AD" value="percentage" />
+		<Enumeration key="0x27AF" value="period (beats per minute)" />
+		<Enumeration key="0x2750" value="permeability (henry per metre)" />
+		<Enumeration key="0x274F" value="permittivity (farad per metre)" />
+		<Enumeration key="0x2763" value="plane angle (degree)" />
+		<Enumeration key="0x2764" value="plane angle (minute)" />
+		<Enumeration key="0x2720" value="plane angle (radian)" />
+		<Enumeration key="0x2765" value="plane angle (second)" />
+		<Enumeration key="0x2726" value="power (watt)" />
+		<Enumeration key="0x2780" value="pressure (bar)" />
+		<Enumeration key="0x2781" value="pressure (millimetre of mercury)" />
+		<Enumeration key="0x2724" value="pressure (pascal)" />
+		<Enumeration key="0x27A5" value="pressure (pound-force per square inch)" />
+		<Enumeration key="0x2756" value="radiance (watt per square metre steradian)" />
+		<Enumeration key="0x2755" value="radiant intensity (watt per steradian)" />
+		<Enumeration key="0x271D" value="refractive index" />
+		<Enumeration key="0x271E" value="relative permeability" />
+		<Enumeration key="0x2721" value="solid angle (steradian)" />
+        <Enumeration key="0x27C3" value="sound pressure (decibel)" />
+		<Enumeration key="0x2748" value="specific energy (joule per kilogram)" />
+		<Enumeration key="0x2747" value="specific heat capacity (joule per kilogram kelvin)" />
+		<Enumeration key="0x2717" value="specific volume (cubic metre per kilogram)" />
+        <Enumeration key="0x27BA" value="step (per minute)" />
+        <Enumeration key="0x27BC" value="stroke (per minute)" />
+		<Enumeration key="0x274D" value="surface charge density (coulomb per square metre)" />
+		<Enumeration key="0x2716" value="surface density (kilogram per square metre)" />
+		<Enumeration key="0x2742" value="surface tension (newton per metre)" />
+		<Enumeration key="0x2749" value="thermal conductivity (watt per metre kelvin)" />
+		<Enumeration key="0x27AC" value="thermodynamic temperature (degree Fahrenheit)" />
+		<Enumeration key="0x2705" value="thermodynamic temperature (kelvin)" />
+		<Enumeration key="0x2762" value="time (day)" />
+		<Enumeration key="0x2761" value="time (hour)" />
+		<Enumeration key="0x2760" value="time (minute)" />
+		<Enumeration key="0x27B4" value="time (month)" />
+		<Enumeration key="0x2703" value="time (second)" />
+		<Enumeration key="0x27B3" value="time (year)" />
+		<Enumeration key="0x2700" value="unitless" />
+		<Enumeration key="0x27A6" value="velocity (kilometre per hour)" />
+		<Enumeration key="0x2785" value="velocity (knot)" />
+		<Enumeration key="0x2712" value="velocity (metres per second)" />
+		<Enumeration key="0x27A7" value="velocity (mile per hour)" />
+		<Enumeration key="0x2711" value="volume (cubic metres)" />
+		<Enumeration key="0x2767" value="volume (litre)" />
+        <Enumeration key="0x27C2" value="volume flow (litre per second)" />
+		<Enumeration key="0x2714" value="wavenumber (reciprocal metre)" />
+      </Enumerations>
+    </Field>
+    <Field name="Namespace">
+      <InformativeText>
+        The Namespace field is used to identify the organization that is responsible for defining the enumerations for the description field.
+	  </InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>8bit</Format>
+      <Minimum>0</Minimum>
+      <Maximum>1</Maximum>
+      <Enumerations>
+        <Enumeration key="1" value="Bluetooth SIG Assigned Numbers" />
+        <ReservedForFutureUse start="2" end="255" />
+      </Enumerations>
+    </Field>
+    <Field name="Description">
+      <InformativeText>
+        The Description is an enumerated value from the organization identified by the Namespace field.
+	  </InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>16bit</Format>
+	  <Enumerations>
+	    <Enumeration key="0x0000" value="unknown" />	
+		<Enumeration key="0x0001" value="first" />	
+		<Enumeration key="0x0002" value="second" />	
+		<Enumeration key="0x0003" value="third" />	
+		<Enumeration key="0x0004" value="fourth" />	
+		<Enumeration key="0x0005" value="fifth" />	
+		<Enumeration key="0x0006" value="sixth" />	
+		<Enumeration key="0x0007" value="seventh" />	
+		<Enumeration key="0x0008" value="eighth" />	
+		<Enumeration key="0x0009" value="ninth" />	
+		<Enumeration key="0x000a" value="tenth" />	
+		<Enumeration key="0x000b" value="eleventh" />	
+		<Enumeration key="0x000c" value="twelfth" />	
+		<Enumeration key="0x000d" value="thirteenth" />	
+		<Enumeration key="0x000e" value="fourteenth" />	
+		<Enumeration key="0x000f" value="fifteenth" />	
+		<Enumeration key="0x0010" value="sixteenth" />	
+		<Enumeration key="0x0011" value="seventeenth" />	
+		<Enumeration key="0x0012" value="eighteenth" />	
+		<Enumeration key="0x0013" value="nineteenth" />	
+		<Enumeration key="0x0014" value="twentieth" />	
+		<Enumeration key="0x0015" value="twenty-first" />	
+		<Enumeration key="0x0016" value="twenty-second" />	
+		<Enumeration key="0x0017" value="twenty-third" />	
+		<Enumeration key="0x0018" value="twenty-fourth" />	
+		<Enumeration key="0x0019" value="twenty-fifth" />	
+		<Enumeration key="0x001a" value="twenty-sixth" />	
+		<Enumeration key="0x001b" value="twenty-seventh" />	
+		<Enumeration key="0x001c" value="twenty-eighth" />	
+		<Enumeration key="0x001d" value="twenty-ninth" />	
+		<Enumeration key="0x001e" value="thirtieth" />	    
+		<Enumeration key="0x001f" value="thirty-first" />	
+		<Enumeration key="0x0020" value="thirty-second" />	
+		<Enumeration key="0x0021" value="thirty-third" /> 	
+		<Enumeration key="0x0022" value="thirty-fourth" />	
+		<Enumeration key="0x0023" value="thirty-fifth" />	
+		<Enumeration key="0x0024" value="thirty-sixth" />	
+		<Enumeration key="0x0025" value="thirty-seventh" />	
+		<Enumeration key="0x0026" value="thirty-eighth" />	
+		<Enumeration key="0x0027" value="thirty-ninth" />	
+		<Enumeration key="0x0028" value="fortieth" />	    
+		<Enumeration key="0x0029" value="forty-first" />	
+		<Enumeration key="0x002a" value="forty-second" />	
+		<Enumeration key="0x002b" value="forty-third" />	
+		<Enumeration key="0x002c" value="forty-fourth" />	
+		<Enumeration key="0x002d" value="forty-fifth" />	
+		<Enumeration key="0x002e" value="forty-sixth" />	
+		<Enumeration key="0x002f" value="forty-seventh" />	
+		<Enumeration key="0x0030" value="forty-eighth" />	
+		<Enumeration key="0x0031" value="forty-ninth" />	
+		<Enumeration key="0x0032" value="fiftieth" />	    
+		<Enumeration key="0x0033" value="fifty-first" />	    
+		<Enumeration key="0x0034" value="fifty-second" />	
+		<Enumeration key="0x0035" value="fifty-third" /> 	
+		<Enumeration key="0x0036" value="fifty-fourth" />	
+		<Enumeration key="0x0037" value="fifty-fifth" /> 	
+		<Enumeration key="0x0038" value="fifty-sixth" /> 	
+		<Enumeration key="0x0039" value="fifty-seventh" />	
+		<Enumeration key="0x003a" value="fifty-eighth" />	
+		<Enumeration key="0x003b" value="fifty-ninth" />	
+		<Enumeration key="0x003c" value="sixtieth" />	    
+		<Enumeration key="0x003d" value="sixty-first" />	    
+		<Enumeration key="0x003e" value="sixty-second" />	
+		<Enumeration key="0x003f" value="sixty-third" />	    
+		<Enumeration key="0x0040" value="sixty-fourth" />	
+		<Enumeration key="0x0041" value="sixty-fifth" />	    
+		<Enumeration key="0x0042" value="sixty-sixth" /> 	
+		<Enumeration key="0x0043" value="sixty-seventh" />	
+		<Enumeration key="0x0044" value="sixty-eighth" />	
+		<Enumeration key="0x0045" value="sixty-ninth" />	
+		<Enumeration key="0x0046" value="seventieth" />	    
+		<Enumeration key="0x0047" value="seventy-first" />	
+		<Enumeration key="0x0048" value="seventy-second" />	
+		<Enumeration key="0x0049" value="seventy-third" />	
+		<Enumeration key="0x004a" value="seventy-fourth" />	
+		<Enumeration key="0x004b" value="seventy-fifth" />	
+		<Enumeration key="0x004c" value="seventy-sixth" />	
+		<Enumeration key="0x004d" value="seventy-seventh" />	
+		<Enumeration key="0x004e" value="seventy-eighth" />	
+		<Enumeration key="0x004f" value="seventy-ninth" />	
+		<Enumeration key="0x0050" value="eightieth" />	    
+		<Enumeration key="0x0051" value="eighty-first" />	
+		<Enumeration key="0x0052" value="eighty-second" />	
+		<Enumeration key="0x0053" value="eighty-third" />	
+		<Enumeration key="0x0054" value="eighty-fourth" />	
+		<Enumeration key="0x0055" value="eighty-fifth" />	
+		<Enumeration key="0x0056" value="eighty-sixth" />	
+		<Enumeration key="0x0057" value="eighty-seventh" />	
+		<Enumeration key="0x0058" value="eighty-eighth" />	
+		<Enumeration key="0x0059" value="eighty-ninth" />	
+		<Enumeration key="0x005a" value="ninetieth" />	    
+		<Enumeration key="0x005b" value="ninety-first" />	
+		<Enumeration key="0x005c" value="ninety-second" />	
+		<Enumeration key="0x005d" value="ninety-third" />	
+		<Enumeration key="0x005e" value="ninety-fourth" />	
+		<Enumeration key="0x005f" value="ninety-fifth" />	
+		<Enumeration key="0x0060" value="ninety-sixth" />	
+		<Enumeration key="0x0061" value="ninety-seventh" />	
+		<Enumeration key="0x0062" value="ninety-eighth" />	
+		<Enumeration key="0x0063" value="ninety-ninth" />	
+		<Enumeration key="0x0064" value="one-hundredth" />	
+		<Enumeration key="0x0065" value="one-hundred-and-first" />	
+		<Enumeration key="0x0066" value="one-hundred-and-second" />	
+		<Enumeration key="0x0067" value="one-hundred-and-third" />	
+		<Enumeration key="0x0068" value="one-hundred-and-fourth" />	
+		<Enumeration key="0x0069" value="one-hundred-and-fifth" />	
+		<Enumeration key="0x006a" value="one-hundred-and-sixth" />	
+		<Enumeration key="0x006b" value="one-hundred-and-seventh" />	
+		<Enumeration key="0x006c" value="one-hundred-and-eighth" />	
+		<Enumeration key="0x006d" value="one-hundred-and-ninth" />	
+		<Enumeration key="0x006e" value="one-hundred-and-tenth" />	
+		<Enumeration key="0x006f" value="one-hundred-and-eleventh" />	
+		<Enumeration key="0x0070" value="one-hundred-and-twelfth" />	
+		<Enumeration key="0x0071" value="one-hundred-and-thirteenth" />	
+		<Enumeration key="0x0072" value="one-hundred-and-fourteenth" />	
+		<Enumeration key="0x0073" value="one-hundred-and-fifteenth" />	
+		<Enumeration key="0x0074" value="one-hundred-and-sixteenth" />	
+		<Enumeration key="0x0075" value="one-hundred-and-seventeenth" />	
+		<Enumeration key="0x0076" value="one-hundred-and-eighteenth" />	
+		<Enumeration key="0x0077" value="one-hundred-and-nineteenth" />	
+		<Enumeration key="0x0078" value="one-hundred-twentieth" />	    
+		<Enumeration key="0x0079" value="one-hundred-and-twenty-first" />	
+		<Enumeration key="0x007a" value="one-hundred-and-twenty-second" />	
+		<Enumeration key="0x007b" value="one-hundred-and-twenty-third" />	
+		<Enumeration key="0x007c" value="one-hundred-and-twenty-fourth" />	
+		<Enumeration key="0x007d" value="one-hundred-and-twenty-fifth" />	
+		<Enumeration key="0x007e" value="one-hundred-and-twenty-sixth" />	
+		<Enumeration key="0x007f" value="one-hundred-and-twenty-seventh" />	
+		<Enumeration key="0x0080" value="one-hundred-and-twenty-eighth" />	
+		<Enumeration key="0x0081" value="one-hundred-and-twenty-ninth" />	
+		<Enumeration key="0x0082" value="one-hundred-thirtieth" />	        
+		<Enumeration key="0x0083" value="one-hundred-and-thirty-first" />	
+		<Enumeration key="0x0084" value="one-hundred-and-thirty-second" />	
+		<Enumeration key="0x0085" value="one-hundred-and-thirty-third" />	
+		<Enumeration key="0x0086" value="one-hundred-and-thirty-fourth" />	
+		<Enumeration key="0x0087" value="one-hundred-and-thirty-fifth" />	
+		<Enumeration key="0x0088" value="one-hundred-and-thirty-sixth" />	
+		<Enumeration key="0x0089" value="one-hundred-and-thirty-seventh" />	
+		<Enumeration key="0x008a" value="one-hundred-and-thirty-eighth" />	
+		<Enumeration key="0x008b" value="one-hundred-and-thirty-ninth" />	
+		<Enumeration key="0x008c" value="one-hundred-fortieth" />	        
+		<Enumeration key="0x008d" value="one-hundred-and-forty-first" />	
+		<Enumeration key="0x008e" value="one-hundred-and-forty-second" />	
+		<Enumeration key="0x008f" value="one-hundred-and-forty-third" />	
+		<Enumeration key="0x0090" value="one-hundred-and-forty-fourth" />	
+		<Enumeration key="0x0091" value="one-hundred-and-forty-fifth" />	
+		<Enumeration key="0x0092" value="one-hundred-and-forty-sixth" />	
+		<Enumeration key="0x0093" value="one-hundred-and-forty-seventh" />	
+		<Enumeration key="0x0094" value="one-hundred-and-forty-eighth" />	
+		<Enumeration key="0x0095" value="one-hundred-and-forty-ninth" />	
+		<Enumeration key="0x0096" value="one-hundred-fiftieth" />	        
+		<Enumeration key="0x0097" value="one-hundred-and-fifty-first" />	    
+		<Enumeration key="0x0098" value="one-hundred-and-fifty-second" />	
+		<Enumeration key="0x0099" value="one-hundred-and-fifty-third" />	    
+		<Enumeration key="0x009a" value="one-hundred-and-fifty-fourth" />	
+		<Enumeration key="0x009b" value="one-hundred-and-fifty-fifth" />	    
+		<Enumeration key="0x009c" value="one-hundred-and-fifty-sixth" />	    
+		<Enumeration key="0x009d" value="one-hundred-and-fifty-seventh" />	
+		<Enumeration key="0x009e" value="one-hundred-and-fifty-eighth" />	
+		<Enumeration key="0x009f" value="one-hundred-and-fifty-ninth" />	
+		<Enumeration key="0x00a0" value="one-hundred-sixtieth" />	        
+		<Enumeration key="0x00a1" value="one-hundred-and-sixty-first" />	    
+		<Enumeration key="0x00a2" value="one-hundred-and-sixty-second" />	
+		<Enumeration key="0x00a3" value="one-hundred-and-sixty-third" />	    
+		<Enumeration key="0x00a4" value="one-hundred-and-sixty-fourth" />	
+		<Enumeration key="0x00a5" value="one-hundred-and-sixty-fifth" /> 	
+		<Enumeration key="0x00a6" value="one-hundred-and-sixty-sixth" />	    
+		<Enumeration key="0x00a7" value="one-hundred-and-sixty-seventh" />	
+		<Enumeration key="0x00a8" value="one-hundred-and-sixty-eighth" />	
+		<Enumeration key="0x00a9" value="one-hundred-and-sixty-ninth" />	
+		<Enumeration key="0x00aa" value="one-hundred-seventieth" />	        
+		<Enumeration key="0x00ab" value="one-hundred-and-seventy-first" />	
+		<Enumeration key="0x00ac" value="one-hundred-and-seventy-second" />	
+		<Enumeration key="0x00ad" value="one-hundred-and-seventy-third" />	
+		<Enumeration key="0x00ae" value="one-hundred-and-seventy-fourth" />	
+		<Enumeration key="0x00af" value="one-hundred-and-seventy-fifth" />	
+		<Enumeration key="0x00b0" value="one-hundred-and-seventy-sixth" />	
+		<Enumeration key="0x00b1" value="one-hundred-and-seventy-seventh" />	
+		<Enumeration key="0x00b2" value="one-hundred-and-seventy-eighth" />	
+		<Enumeration key="0x00b3" value="one-hundred-and-seventy-ninth" />	
+		<Enumeration key="0x00b4" value="one-hundred-eightieth" />	        
+		<Enumeration key="0x00b5" value="one-hundred-and-eighty-first" />	
+		<Enumeration key="0x00b6" value="one-hundred-and-eighty-second" />	
+		<Enumeration key="0x00b7" value="one-hundred-and-eighty-third" />	
+		<Enumeration key="0x00b8" value="one-hundred-and-eighty-fourth" />	
+		<Enumeration key="0x00b9" value="one-hundred-and-eighty-fifth" />	
+		<Enumeration key="0x00ba" value="one-hundred-and-eighty-sixth" />	
+		<Enumeration key="0x00bb" value="one-hundred-and-eighty-seventh" />	
+		<Enumeration key="0x00bc" value="one-hundred-and-eighty-eighth" />	
+		<Enumeration key="0x00bd" value="one-hundred-and-eighty-ninth" />	
+		<Enumeration key="0x00be" value="one-hundred-ninetieth" />	        
+		<Enumeration key="0x00bf" value="one-hundred-and-ninety-first" />	
+		<Enumeration key="0x00c0" value="one-hundred-and-ninety-second" />	
+		<Enumeration key="0x00c1" value="one-hundred-and-ninety-third" />	
+		<Enumeration key="0x00c2" value="one-hundred-and-ninety-fourth" />	
+		<Enumeration key="0x00c3" value="one-hundred-and-ninety-fifth" />	
+		<Enumeration key="0x00c4" value="one-hundred-and-ninety-sixth" />	
+		<Enumeration key="0x00c5" value="one-hundred-and-ninety-seventh" />	
+		<Enumeration key="0x00c6" value="one-hundred-and-ninety-eighth" />	
+		<Enumeration key="0x00c7" value="one-hundred-and-ninety-ninth" />	
+		<Enumeration key="0x00c8" value="two-hundredth" />	        
+		<Enumeration key="0x00c9" value="two-hundred-and-first" />	
+		<Enumeration key="0x00ca" value="two-hundred-and-second" />	
+		<Enumeration key="0x00cb" value="two-hundred-and-third" />	
+		<Enumeration key="0x00cc" value="two-hundred-and-fourth" />	
+		<Enumeration key="0x00cd" value="two-hundred-and-fifth" />	
+		<Enumeration key="0x00ce" value="two-hundred-and-sixth" />	
+		<Enumeration key="0x00cf" value="two-hundred-and-seventh" />	
+		<Enumeration key="0x00d0" value="two-hundred-and-eighth" />	
+		<Enumeration key="0x00d1" value="two-hundred-and-ninth" />	
+		<Enumeration key="0x00d2" value="two-hundred-and-tenth" />	
+		<Enumeration key="0x00d3" value="two-hundred-and-eleventh" />	
+		<Enumeration key="0x00d4" value="two-hundred-and-twelfth" />	
+		<Enumeration key="0x00d5" value="two-hundred-and-thirteenth" />	
+		<Enumeration key="0x00d6" value="two-hundred-and-fourteenth" />	
+		<Enumeration key="0x00d7" value="two-hundred-and-fifteenth" />	
+		<Enumeration key="0x00d8" value="two-hundred-and-sixteenth" />	
+		<Enumeration key="0x00d9" value="two-hundred-and-seventeenth" />	
+		<Enumeration key="0x00da" value="two-hundred-and-eighteenth" />	
+		<Enumeration key="0x00db" value="two-hundred-and-nineteenth" />	
+		<Enumeration key="0x00dc" value="two-hundred-twentieth" />	    
+		<Enumeration key="0x00dd" value="two-hundred-and-twenty-first" />	
+		<Enumeration key="0x00de" value="two-hundred-and-twenty-second" />	
+		<Enumeration key="0x00df" value="two-hundred-and-twenty-third" />	
+		<Enumeration key="0x00e0" value="two-hundred-and-twenty-fourth" />	
+		<Enumeration key="0x00e1" value="two-hundred-and-twenty-fifth" />	
+		<Enumeration key="0x00e2" value="two-hundred-and-twenty-sixth" />	
+		<Enumeration key="0x00e3" value="two-hundred-and-twenty-seventh" />	
+		<Enumeration key="0x00e4" value="two-hundred-and-twenty-eighth" />	
+		<Enumeration key="0x00e5" value="two-hundred-and-twenty-ninth" />	
+		<Enumeration key="0x00e6" value="two-hundred-thirtieth" />	        
+		<Enumeration key="0x00e7" value="two-hundred-and-thirty-first" />	
+		<Enumeration key="0x00e8" value="two-hundred-and-thirty-second" />	
+		<Enumeration key="0x00e9" value="two-hundred-and-thirty-third" />	
+		<Enumeration key="0x00ea" value="two-hundred-and-thirty-fourth" />	
+		<Enumeration key="0x00eb" value="two-hundred-and-thirty-fifth" />	
+		<Enumeration key="0x00ec" value="two-hundred-and-thirty-sixth" />	
+		<Enumeration key="0x00ed" value="two-hundred-and-thirty-seventh" />	
+		<Enumeration key="0x00ee" value="two-hundred-and-thirty-eighth" />	
+		<Enumeration key="0x00ef" value="two-hundred-and-thirty-ninth" />	
+		<Enumeration key="0x00f0" value="two-hundred-fortieth" />	        
+		<Enumeration key="0x00f1" value="two-hundred-and-forty-first" />	
+		<Enumeration key="0x00f2" value="two-hundred-and-forty-second" />	
+		<Enumeration key="0x00f3" value="two-hundred-and-forty-third" />	
+		<Enumeration key="0x00f4" value="two-hundred-and-forty-fourth" />	
+		<Enumeration key="0x00f5" value="two-hundred-and-forty-fifth" />	
+		<Enumeration key="0x00f6" value="two-hundred-and-forty-sixth" />	
+		<Enumeration key="0x00f7" value="two-hundred-and-forty-seventh" />	
+		<Enumeration key="0x00f8" value="two-hundred-and-forty-eighth" />	
+		<Enumeration key="0x00f9" value="two-hundred-and-forty-ninth" />	
+		<Enumeration key="0x00fa" value="two-hundred-fiftieth" />	        
+		<Enumeration key="0x00fb" value="two-hundred-and-fifty-first" />	    
+		<Enumeration key="0x00fc" value="two-hundred-and-fifty-second" />	
+		<Enumeration key="0x00fd" value="two-hundred-and-fifty-third" /> 	
+		<Enumeration key="0x00fe" value="two-hundred-and-fifty-fourth" />	
+		<Enumeration key="0x00ff" value="two-hundred-and-fifty-fifth" />	    
+		<Enumeration key="0x0100" value="front" />	
+		<Enumeration key="0x0101" value="back" />	
+		<Enumeration key="0x0102" value="top" />	    
+		<Enumeration key="0x0103" value="bottom" />	
+		<Enumeration key="0x0104" value="upper" />	
+		<Enumeration key="0x0105" value="lower" />	
+		<Enumeration key="0x0106" value="main" />	
+		<Enumeration key="0x0107" value="backup" />	
+		<Enumeration key="0x0108" value="auxiliary" />   	
+		<Enumeration key="0x0109" value="supplementary" />	
+		<Enumeration key="0x010A" value="flash" />	
+		<Enumeration key="0x010B" value="inside" />	
+		<Enumeration key="0x010C" value="outside" />	
+		<Enumeration key="0x010D" value="left" />	
+		<Enumeration key="0x010E" value="right" />	
+		<Enumeration key="0x010F" value="internal" />	
+		<Enumeration key="0x0110" value="external" />	
+	  </Enumerations>
+    </Field>
+  </Value>
+</Descriptor>

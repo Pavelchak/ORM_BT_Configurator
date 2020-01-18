@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Copyright 2014 Bluetooth SIG, Inc. All rights reserved.-->
+<Descriptor xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/descriptor.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+name="Environmental Sensing Trigger Setting" type="org.bluetooth.descriptor.es_trigger_setting" uuid="290D" last-modified="2014-11-20" approved="Yes">
+	<InformativeText>This definition is shown in the Environmental Sensing Service Section 3.1.2.2</InformativeText>
+	<Value>
+		<Field name="Condition">
+			<Requirement>Mandatory</Requirement>
+			<Format>uint8</Format>
+			<Enumerations>
+				<Enumeration key="0" value="Trigger inactive" />
+				<Enumeration key="1" value="Use a fixed time interval between transmissions" />
+				<Enumeration key="2" value="No less than the specified time between transmissions" />
+				<Enumeration key="3" value="When value changes compared to previous value" />
+				<Enumeration key="4" value="While less than the specified value" />
+				<Enumeration key="5" value="While less than or equal to the specified value" />
+				<Enumeration key="6" value="While greater than the specified value" />
+				<Enumeration key="7" value="While greater than or equal to the specified value" />
+				<Enumeration key="8" value="While equal to the specified value" />
+				<Enumeration key="9" value="While not equal to the specified value" />
+			</Enumerations>           
+		</Field>
+		<Field name="Operand">
+			<Requirement>Mandatory</Requirement>
+			<Format>variable</Format>          
+		</Field>
+	</Value>		
+</Descriptor>

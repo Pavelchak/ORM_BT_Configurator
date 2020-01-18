@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Copyright 2014 Bluetooth SIG, Inc. All rights reserved.-->
+<Characteristic xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/characteristic.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Data Source" type="org.bluetooth.characteristic.ancs.data_source" uuid="22EAC6E9-24D6-4BB5-BE44-B36ACE7C7BFB" approved="No">
+    <InformativeText>
+        <Abstract></Abstract>
+	</InformativeText>
+    <Value>
+    <Field name="Data">
+        <Requirement>Mandatory</Requirement>
+        <Format>uint8[]</Format>
+    </Field>
+	</Value>
+</Characteristic>

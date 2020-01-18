@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Copyright 2014 Bluetooth SIG, Inc. All rights reserved.-->
+<Characteristic xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/characteristic.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Notification Source" type="org.bluetooth.characteristic.ancs.notification_source" uuid="9FBF120D-6301-42D9-8C58-25E699A21DBD" approved="No">
+    <InformativeText>
+        <Abstract></Abstract>
+	</InformativeText>
+    <Value>
+    <Field name="EventID">
+        <Requirement>Mandatory</Requirement>
+        <Format>uint8</Format>
+		<Enumerations>
+			<Enumeration key="0" value="Notification Added"/>
+			<Enumeration key="1" value="Notification Modified"/>
+			<Enumeration key="2" value="Notification Removed"/>
+		</Enumerations>
+    </Field>
+	 <Field name="EventFlags">
+        <Requirement>Mandatory</Requirement>
+        <Format>uint8</Format>
+		<BitField>
+				<Bit index="0" size="1" name="Silent Flag">
+					<Enumerations>
+						<Enumeration key="0" value="False"/>
+						<Enumeration key="1" value="True"/>
+					</Enumerations>
+				</Bit>
+				<Bit index="1" size="1" name="Important Flag">
+					<Enumerations>
+						<Enumeration key="0" value="False"/>
+						<Enumeration key="1" value="True"/>
+					</Enumerations>
+				</Bit>
+				<Bit index="2" size="1" name="Pre-existing Flag">
+					<Enumerations>
+						<Enumeration key="0" value="False"/>
+						<Enumeration key="1" value="True"/>
+					</Enumerations>
+				</Bit>
+				<Bit index="3" size="1" name="Positive Action Flag">
+					<Enumerations>
+						<Enumeration key="0" value="False"/>
+						<Enumeration key="1" value="True"/>
+                     </Enumerations>
+                    
+				</Bit>
+				<Bit index="4" size="1" name="Negative Action Flag">
+					<Enumerations>
+						<Enumeration key="0" value="False"/>
+						<Enumeration key="1" value="True"/>
+					</Enumerations>
+				</Bit>
+				<ReservedForFutureUse index="6" size="2"/>
+			</BitField>
+    </Field>
+	 <Field name="CategoryID">
+        <Requirement>Mandatory</Requirement>
+        <Format>uint8</Format>
+		<Enumerations>
+			<Enumeration key="0" value="Other"/>
+			<Enumeration key="1" value="Incoming Call"/>
+			<Enumeration key="2" value="Missed Call"/>
+			<Enumeration key="3" value="Voicemail"/>
+			<Enumeration key="4" value="Social"/>
+			<Enumeration key="5" value="Schedule"/>
+			<Enumeration key="6" value="Email"/>
+			<Enumeration key="7" value="News"/>
+			<Enumeration key="8" value="Health and Fitness"/>
+			<Enumeration key="9" value="Business and Finance"/>
+			<Enumeration key="10" value="Location"/>
+			<Enumeration key="11" value="Entertainment"/>
+		</Enumerations>
+    </Field>
+	 <Field name="CategoryCount">
+        <Requirement>Mandatory</Requirement>
+        <Format>uint8</Format>
+    </Field>
+	 <Field name="NotificationUID">
+        <Requirement>Mandatory</Requirement>
+        <Format>uint32</Format>
+    </Field>
+	</Value>
+</Characteristic>

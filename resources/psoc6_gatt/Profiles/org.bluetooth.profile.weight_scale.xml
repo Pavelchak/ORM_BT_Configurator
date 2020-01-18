@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2011 Bluetooth SIG, Inc. All rights reserved. -->
+<Profile xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/profile.xsd" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    type="org.bluetooth.profile.weight_scale"
+    name="Weight Scale">
+    <InformativeText>
+        <Abstract>
+           This profile is used to enable a data collection device to obtain data from a Weight Scale that exposes the Weight Scale Service.
+		</Abstract>
+	</InformativeText>
+	<Role name="Weight Scale">
+		<GapRole>Peripheral</GapRole>
+		<Service type="org.bluetooth.service.weight_scale">
+			<Declaration>Primary</Declaration>
+			<Requirement>Mandatory</Requirement>
+		</Service>
+		<Service type="org.bluetooth.service.device_information">
+			<Declaration>PrimarySingleInstance</Declaration>
+			<Requirement>Mandatory</Requirement>
+		</Service>
+		<Service type="org.bluetooth.service.user_data">
+			<Declaration>PrimarySingleInstance</Declaration>
+			<Requirement>Optional</Requirement>
+		</Service>
+		 <Service type="org.bluetooth.service.body_composition">
+			<Declaration>Secondary</Declaration>
+			<Requirement>Optional</Requirement>
+		</Service>
+        <Service type="org.bluetooth.service.battery_service">
+			<Declaration>Primary</Declaration>
+			<Requirement>Optional</Requirement>
+		</Service>
+		 <Service type="org.bluetooth.service.current_time">
+			<Declaration>PrimarySingleInstance</Declaration>
+			<Requirement>Optional</Requirement>
+		</Service>
+	</Role>
+    
+	<Role name="Collector">
+		<GapRole>Central</GapRole>
+		<Client type="org.bluetooth.service.weight_scale">
+			<Declaration>Primary</Declaration>
+			<Requirement>Mandatory</Requirement>
+		</Client>
+		<Client type="org.bluetooth.service.device_information">
+			<Declaration>PrimarySingleInstance</Declaration>
+			<Requirement>Mandatory</Requirement>
+		</Client>
+		<Client type="org.bluetooth.service.user_data">
+			<Declaration>PrimarySingleInstance</Declaration>
+			<Requirement>Optional</Requirement>
+		</Client>
+		 <Client type="org.bluetooth.service.body_composition">
+			<Declaration>Secondary</Declaration>
+			<Requirement>Optional</Requirement>
+		</Client>
+        <Client type="org.bluetooth.service.battery_service">
+			<Declaration>Primary</Declaration>
+			<Requirement>Optional</Requirement>
+		</Client>
+		 <Client type="org.bluetooth.service.current_time">
+			<Declaration>PrimarySingleInstance</Declaration>
+			<Requirement>Optional</Requirement>
+		</Client>
+	</Role>
+	<Role name="Weight Scale and Collector">
+		<GapRole>PeripheralAndCentral</GapRole>
+		<Service type="org.bluetooth.service.weight_scale">
+			<Declaration>Primary</Declaration>
+			<Requirement>Mandatory</Requirement>
+		</Service>
+		<Service type="org.bluetooth.service.device_information">
+			<Declaration>PrimarySingleInstance</Declaration>
+			<Requirement>Mandatory</Requirement>
+		</Service>
+		<Service type="org.bluetooth.service.user_data">
+			<Declaration>PrimarySingleInstance</Declaration>
+			<Requirement>Optional</Requirement>
+		</Service>
+		 <Service type="org.bluetooth.service.body_composition">
+			<Declaration>Secondary</Declaration>
+			<Requirement>Optional</Requirement>
+		</Service>
+        <Service type="org.bluetooth.service.battery_service">
+			<Declaration>Primary</Declaration>
+			<Requirement>Optional</Requirement>
+		</Service>
+		 <Service type="org.bluetooth.service.current_time">
+			<Declaration>PrimarySingleInstance</Declaration>
+			<Requirement>Optional</Requirement>
+		</Service>
+		
+		<Client type="org.bluetooth.service.weight_scale">
+			<Declaration>Primary</Declaration>
+			<Requirement>Mandatory</Requirement>
+		</Client>
+		<Client type="org.bluetooth.service.device_information">
+			<Declaration>PrimarySingleInstance</Declaration>
+			<Requirement>Mandatory</Requirement>
+		</Client>
+		<Client type="org.bluetooth.service.user_data">
+			<Declaration>PrimarySingleInstance</Declaration>
+			<Requirement>Optional</Requirement>
+		</Client>
+		 <Client type="org.bluetooth.service.body_composition">
+			<Declaration>Secondary</Declaration>
+			<Requirement>Optional</Requirement>
+		</Client>
+        <Client type="org.bluetooth.service.battery_service">
+			<Declaration>Primary</Declaration>
+			<Requirement>Optional</Requirement>
+		</Client>
+		 <Client type="org.bluetooth.service.current_time">
+			<Declaration>PrimarySingleInstance</Declaration>
+			<Requirement>Optional</Requirement>
+		</Client>
+	</Role>
+</Profile>

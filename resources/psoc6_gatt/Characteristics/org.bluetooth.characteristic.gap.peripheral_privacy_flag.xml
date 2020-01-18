@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2011 Bluetooth SIG, Inc. All rights reserved. -->
+<Characteristic xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/characteristic.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Peripheral Privacy Flag" type="org.bluetooth.characteristic.gap.peripheral_privacy_flag" last-modified="2013-05-29" uuid="2A02">
+    <InformativeText>
+        <InformativeDisclaimer/>
+    </InformativeText>
+    <Value>
+        <Field name="Flag">
+            <Requirement>Mandatory</Requirement>
+            <Format>boolean</Format>
+            <Enumerations>
+                <Enumeration key="0" value="Privacy is disabled in this device" />
+                <Enumeration key="1" value="Privacy is enabled in this device" />
+            </Enumerations>
+        </Field>
+    </Value>
+</Characteristic>

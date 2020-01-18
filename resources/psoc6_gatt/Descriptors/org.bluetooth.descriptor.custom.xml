@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2011 Bluetooth SIG, Inc. All rights reserved. -->
+<Descriptor xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/descriptor.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="org.bluetooth.descriptor.custom" uuid="00000000-0000-1000-8000-00805F9B34FB" name="Custom Descriptor">
+  <Value>
+    <Field name="New field">
+      <Requirement>Mandatory</Requirement>
+      <Format>utf8s</Format>       
+    </Field>
+  </Value>
+</Descriptor>

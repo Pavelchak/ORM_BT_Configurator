@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2011 Bluetooth SIG, Inc. All rights reserved. -->
+<Characteristic xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/characteristic.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="PRU Control" type="org.bluetooth.characteristic.pru_control" uuid="6455e670-a146-11e2-9e96-0800200c9a67">
+  <InformativeText>
+    <Abstract>
+		PRU ON/OFF control. PTU initiates write when command needs to be sent.      
+	</Abstract>
+    <Summary>            
+	</Summary>
+  </InformativeText>
+  <Value>
+    <Field name="Enables">
+      <Requirement>Mandatory</Requirement>
+      <Format>8bit</Format>
+	    <BitField>	            
+        <Bit index="7" size="1" name="Enable PRU output">
+            <Enumerations>
+                <Enumeration key="0" value="Disable" />
+                <Enumeration key="1" value="Enable" />
+            </Enumerations>
+        </Bit> 
+        <Bit index="6" size="1" name="Enable PRU charge indicator">
+            <Enumerations>
+                <Enumeration key="0" value="Disable" />
+                <Enumeration key="1" value="Enable" />
+            </Enumerations>
+        </Bit>
+        <Bit index="4" size="2" name="Adjust power command">
+            <Enumerations>
+                <Enumeration key="0" value="Maximum power" />
+                <Enumeration key="1" value="66% * P_RECT_MAX" />
+						    <Enumeration key="2" value="33% * P_RECT_MAX" />
+						    <Enumeration key="3" value="2.5W" />
+            </Enumerations>
+        </Bit>    
+        <ReservedForFutureUse index="0" size="4"></ReservedForFutureUse>			
+      </BitField>
+    </Field>
+	<Field name="Permission">
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+	  <Enumerations> 
+        <Enumeration key="0" value="Permitted without reason" />
+        <Enumeration key="1" value="Permitted with waiting time due to limited available power" />
+        <Enumeration key="128" value="Denied with PTU Latching Fault 4" />
+        <Enumeration key="129" value="Denied due to limited available power" />
+        <Enumeration key="130" value="Denied due to limited PTU Number of Devices" />
+        <Enumeration key="131" value="Denied due to limited PTU Class support" />
+      </Enumerations>
+    </Field>
+	<Field name="Time Set">
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+	  <Enumerations> 
+        <Enumeration key="1" value="10 ms" />
+        <Enumeration key="2" value="20 ms" />
+        <Enumeration key="3" value="30 ms" />
+        <Enumeration key="4" value="40 ms" />
+        <Enumeration key="5" value="50 ms" />
+        <Enumeration key="6" value="60 ms" />
+        <Enumeration key="7" value="70 ms" />
+        <Enumeration key="8" value="80 ms" />
+      </Enumerations>
+    </Field>
+	<Field name="Reserved for future use">
+      <Requirement>Mandatory</Requirement>
+	   <FillRequirement>C1</FillRequirement>
+      <Format>uint16</Format>
+    </Field>
+  </Value>
+</Characteristic>

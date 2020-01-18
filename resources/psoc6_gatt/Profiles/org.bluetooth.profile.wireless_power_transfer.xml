@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2011 Bluetooth SIG, Inc. All rights reserved. -->
+<Profile xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/profile.xsd" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    type="org.bluetooth.profile.wireless_power_transfer"
+    name="Wireless Power Transfer">
+    <InformativeText>
+        <Abstract>
+           
+		</Abstract>
+	</InformativeText>
+	<Role name="Power Receiver Unit">
+		<GapRole>Peripheral</GapRole>
+		<Service type="org.bluetooth.service.wireless_power_transfer">
+			<Declaration>Primary</Declaration>
+			<Requirement>Mandatory</Requirement>
+		</Service>
+	</Role>    
+	<Role name="Power Transmitter Unit">
+		<GapRole>Central</GapRole>
+		<Client type="org.bluetooth.service.wireless_power_transfer">
+			<Requirement>Mandatory</Requirement>
+		</Client>
+	</Role>
+</Profile>

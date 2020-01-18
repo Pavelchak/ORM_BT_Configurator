@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Characteristic xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/characteristic.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Control Point" type="org.bluetooth.characteristic.ota_upgrade_control_point" uuid="A3DD50BF-F7A7-4E99-838E-570A086C661B" approved="No">
+    <InformativeText>
+        <Abstract></Abstract>
+	</InformativeText>
+    <Value>
+      <Field name="Value">
+        <Requirement>Mandatory</Requirement>
+        <Format>uint8[]</Format>
+      </Field>
+	</Value>
+</Characteristic>

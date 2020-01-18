@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Copyright 2014 Bluetooth SIG, Inc. All rights reserved.-->
+<Descriptor xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/descriptor.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+name="Environmental Sensing Measurement" type="org.bluetooth.descriptor.es_measurement" uuid="290C" last-modified="2014-11-20" approved="Yes">
+    <InformativeText>This definition is shown in the Environmental Sensing Service Section 3.1.2.1 and its subsections.</InformativeText>
+	<Value>
+		<Field name="Flags">
+			<Requirement>Mandatory</Requirement>
+			<Format>16bit</Format>		
+			<Enumerations>
+				<Enumeration key="0" value="Reserved for Future Use" />
+			</Enumerations>  		
+      <FillRequirement>C1</FillRequirement>	
+		</Field>
+		<Field name="Sampling Function">
+			<Requirement>Mandatory</Requirement>
+			<Format>uint8</Format>		
+			<Enumerations>
+				<Enumeration key="0" value="Unspecified" />
+				<Enumeration key="1" value="Instantaneous" />
+				<Enumeration key="2" value="Arithmetic Mean" />
+				<Enumeration key="3" value="RMS" />
+				<Enumeration key="4" value="Maximum" />
+				<Enumeration key="5" value="Minimum" />
+				<Enumeration key="6" value="Accumulated" />
+				<Enumeration key="7" value="Count" />
+			</Enumerations> 			
+		</Field>
+		<Field name="Measurement Period">
+			<Requirement>Mandatory</Requirement>
+			<Format>uint24</Format>			   
+			<Unit>org.bluetooth.unit.time.second</Unit>
+		</Field>
+		<Field name="Update Interval">
+			<Requirement>Mandatory</Requirement>
+			<Format>uint24</Format>			
+			<Unit>org.bluetooth.unit.time.second</Unit>			
+		</Field>
+		<Field name="Application">
+			<Requirement>Mandatory</Requirement>
+			<Format>uint8</Format>	
+			<Enumerations>
+				<Enumeration key="0" value="Unspecified" />
+				<Enumeration key="1" value="Air" />
+				<Enumeration key="2" value="Water" />
+				<Enumeration key="3" value="Barometric" />
+				<Enumeration key="4" value="Soil" />
+				<Enumeration key="5" value="Infrared" />
+				<Enumeration key="6" value="Map Database" />
+				<Enumeration key="7" value="Barometric Elevation Source" />
+				<Enumeration key="8" value="GPS only Elevation Source" />
+				<Enumeration key="9" value="GPS and Map database Elevation Source" />
+				<Enumeration key="10" value="Vertical datum Elevation Source" />
+				<Enumeration key="11" value="Onshore" />
+				<Enumeration key="12" value="Onboard vessel or vehicle" />
+				<Enumeration key="13" value="Front" />
+				<Enumeration key="14" value="Back/Rear" />
+				<Enumeration key="15" value="Upper" />
+				<Enumeration key="16" value="Lower" />
+				<Enumeration key="17" value="Primary" />
+				<Enumeration key="18" value="Secondary" />
+				<Enumeration key="19" value="Outdoor" />
+				<Enumeration key="20" value="Indoor" />
+				<Enumeration key="21" value="Top" />
+				<Enumeration key="22" value="Bottom" />
+				<Enumeration key="23" value="Main" />
+				<Enumeration key="24" value="Backup" />
+				<Enumeration key="25" value="Auxiliary" />
+				<Enumeration key="26" value="Supplementary" />
+				<Enumeration key="27" value="Inside" />
+				<Enumeration key="28" value="Outside" />
+				<Enumeration key="29" value="Left" />
+				<Enumeration key="30" value="Right" />
+				<Enumeration key="31" value="Internal" />
+				<Enumeration key="32" value="External" />
+				<Enumeration key="33" value="Solar" />
+			</Enumerations> 			
+		</Field>
+		<Field name="Measurement Uncertainty">
+			<Requirement>Mandatory</Requirement>
+			<Format>uint8</Format>	
+			<Unit>org.bluetooth.unit.percentage</Unit>	
+			<BinaryExponent>-1</BinaryExponent>			
+		</Field>
+	</Value>
+</Descriptor>

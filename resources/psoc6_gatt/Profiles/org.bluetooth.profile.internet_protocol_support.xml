@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2011 Bluetooth SIG, Inc. All rights reserved. -->
+<Profile xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/profile.xsd" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    type="org.bluetooth.profile.internet_protocol_support"
+    name="Internet Protocol Support">
+  <InformativeText>
+    <Abstract>
+         This profile allows devices to discover and communicate to other devices that support IPSP.
+	  </Abstract>
+	</InformativeText>
+	<Role name="Node">
+		<GapRole>Peripheral</GapRole>
+    <GapRole>PeripheralAndCentral</GapRole>
+		<Service type="org.bluetooth.service.internet_protocol_support">
+			<Declaration>Primary</Declaration>
+			<Requirement>Mandatory</Requirement>
+		</Service>
+	</Role>
+	<Role name="Router">
+		<GapRole>Central</GapRole>
+    <GapRole>PeripheralAndCentral</GapRole>
+		<Client type="org.bluetooth.service.internet_protocol_support">
+			<Requirement>Mandatory</Requirement>
+		</Client>
+  </Role>
+  <Role name="Router and Node">
+    <GapRole>PeripheralAndCentral</GapRole>
+		<Service type="org.bluetooth.service.internet_protocol_support">
+			<Declaration>Primary</Declaration>
+			<Requirement>Mandatory</Requirement>
+		</Service>
+    <Client type="org.bluetooth.service.internet_protocol_support">
+			<Requirement>Mandatory</Requirement>
+		</Client>
+	</Role>	
+</Profile>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2011 Bluetooth SIG, Inc. All rights reserved. -->
+<Characteristic xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/characteristic.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="PRU Static Parameter" type="org.bluetooth.characteristic.pru_static_parameter" uuid="6455e670-a146-11e2-9e96-0800200c9a6A">
+  <InformativeText>
+    <Abstract>
+		The PRU Static Parameter Characteristic contains data with constant values from a PRU.    
+	</Abstract>
+    <Summary>            
+	</Summary>
+  </InformativeText>
+  <Value>
+    <Field name="Optional fields validity">
+      <Requirement>Mandatory</Requirement>
+      <Format>8bit</Format>
+	    <BitField>
+        <Bit index="7" size="1" name="Delta R1">
+          <Enumerations>
+            <Enumeration key="0" value="Delta R1 not present" />
+            <Enumeration key="1" value="Delta R1 present" />
+          </Enumerations>
+        </Bit>	
+        <ReservedForFutureUse index="0" size="7" />
+      </BitField>
+    </Field>
+	<Field name="Protocol Revision">
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Enumerations>
+        <Enumeration key="0" value="BSS v1.2.1" />
+        <Enumeration key="1" value="BSS v1.3" />
+        <ReservedForFutureUse start="2" end="255" />
+      </Enumerations>
+    </Field>
+	<Field name="Reserved for future use">
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <FillRequirement>C1</FillRequirement>
+    </Field>	
+	<Field name="PRU Category">
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Enumerations>
+          <Enumeration key="0" value="Undefined" />
+          <Enumeration key="1" value="Category 1" />
+          <Enumeration key="2" value="Category 2" />
+          <Enumeration key="3" value="Category 3" />
+          <Enumeration key="4" value="Category 4" />
+          <Enumeration key="5" value="Category 5" />
+          <Enumeration key="6" value="Category 6" />
+          <Enumeration key="7" value="Category 7" />
+          <ReservedForFutureUse start="8" end="255" />
+       </Enumerations>
+    </Field>
+	<Field name="PRU Information">
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <BitField>
+	    	<Bit index="7" size="1" name="NFC receiver">
+          <Enumerations>
+              <Enumeration key="0" value="Not supported" />
+              <Enumeration key="1" value="Supported" />
+          </Enumerations>
+        </Bit>		
+      	<Bit index="6" size="1" name="Separate BTLE radio in PRU">
+          <Enumerations>
+              <Enumeration key="0" value="Not supported" />
+              <Enumeration key="1" value="Supported" />
+          </Enumerations>
+        </Bit>	
+        <Bit index="5" size="1" name="Power Control Algorithm Preference">
+          <Enumerations>
+              <Enumeration key="0" value="V_RECT_MIN_ERROR" />
+              <Enumeration key="1" value="Mex System Efficiency" />
+          </Enumerations>
+        </Bit>	
+      	<Bit index="4" size="1" name="Adjust power capability">
+          <Enumerations>
+              <Enumeration key="0" value="Not supported" />
+              <Enumeration key="1" value="Supported" />
+          </Enumerations>
+        </Bit>	
+				<Bit index="3" size="1" name="Charge Complete Connected Mode">
+          <Enumerations>
+              <Enumeration key="0" value="Not supported" />
+              <Enumeration key="1" value="Supported" />
+          </Enumerations>
+        </Bit>	
+        <ReservedForFutureUse index="0" size="3" />
+      </BitField>
+    </Field>
+	<Field name="Hardware rev">
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+    </Field>
+	<Field name="Firmware rev">
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+    </Field>
+	<Field name="P RECT_MAX">
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.power.watt</Unit>
+      <DecimalExponent>-1</DecimalExponent>
+    </Field>
+	<Field name="V RECT_MIN_STATIC">
+      <Requirement>Mandatory</Requirement>
+      <Format>uint16</Format>
+      <Unit>org.bluetooth.unit.electric_potential_difference.volt</Unit>
+      <DecimalExponent>-3</DecimalExponent>
+    </Field>
+	<Field name="V RECT_HIGH_STATIC">
+      <Requirement>Mandatory</Requirement>
+      <Format>uint16</Format>
+      <Unit>org.bluetooth.unit.electric_potential_difference.volt</Unit>
+      <DecimalExponent>-3</DecimalExponent>
+    </Field>
+	<Field name="V RECT_SET">
+      <Requirement>Mandatory</Requirement>
+      <Format>uint16</Format>
+      <Unit>org.bluetooth.unit.electric_potential_difference.volt</Unit>
+      <DecimalExponent>-3</DecimalExponent>
+    </Field>
+	<Field name="Delta R1">
+      <Requirement>Optional</Requirement>
+      <Format>uint16</Format>
+      <Unit>org.bluetooth.unit.electric_resistance.ohm</Unit>
+      <DecimalExponent>-1</DecimalExponent>
+    </Field>
+	
+	<Field name="Reserved for future use">
+      <Requirement>Mandatory</Requirement>
+	    <FillRequirement>C1</FillRequirement>
+      <Format>uint32</Format>
+    </Field>
+  </Value>
+</Characteristic>

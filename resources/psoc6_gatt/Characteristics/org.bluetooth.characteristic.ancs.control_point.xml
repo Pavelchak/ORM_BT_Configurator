@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Characteristic xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/characteristic.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Control Point" type="org.bluetooth.characteristic.ancs.control_point" uuid="69D1D8F3-45E1-49A8-9821-9BBDFDAAD9D9" approved="No">
+    <InformativeText>
+        <Abstract></Abstract>
+	</InformativeText>
+    <Value>
+    <Field name="Command ID">
+        <Requirement>Mandatory</Requirement>
+        <Format>uint8</Format>
+		<Enumerations>
+			<Enumeration key="0" value="Get Notification Attributes"/>
+			<Enumeration key="1" value="Get App Attributes"/>
+			<Enumeration key="2" value="Perform Notification Action"/>
+		</Enumerations>
+    </Field>
+	<Field name="Notification UID">
+        <Requirement>C1</Requirement>
+        <Format>uint32</Format>
+    </Field>
+	<Field name="App Identifier">
+        <Requirement>C1</Requirement>
+        <Format>uint32</Format>
+    </Field>
+	<Field name="Attribute IDs">
+        <Requirement>C1</Requirement>
+        <Format>variable</Format>
+    </Field>
+	<Field name="Action ID">
+        <Requirement>C1</Requirement>
+        <Format>uint8</Format>
+		<Enumerations>
+			<Enumeration key="0" value="Positive"/>
+			<Enumeration key="1" value="Negative"/>
+		</Enumerations>
+    </Field>
+	</Value>
+</Characteristic>

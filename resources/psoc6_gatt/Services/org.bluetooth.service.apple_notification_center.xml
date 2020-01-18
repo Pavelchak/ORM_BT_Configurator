@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2011 Bluetooth SIG, Inc. All rights reserved. -->
+<Service xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/service.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Apple Notification Center" type="org.bluetooth.service.apple_notification_center" uuid="7905F431-B5CE-4E99-A40F-4B1E122D00D0">
+	<InformativeText>
+		<Abstract>     
+		</Abstract>
+        <Summary>              
+        </Summary>
+	</InformativeText>
+	<Dependencies>
+		<Dependency>This service has no dependencies on other GATT-based services.</Dependency>
+	</Dependencies>
+	<Transports>
+		<Classic>false</Classic>
+		<LowEnergy>true</LowEnergy>
+	</Transports>
+	<Characteristics>
+		<Characteristic name="Notification Source" type="org.bluetooth.characteristic.ancs.notification_source">
+            <InformativeText></InformativeText>
+			<Requirement>Mandatory</Requirement>
+			<Properties>
+				<Read>Excluded</Read>
+				<Write>Excluded</Write>
+				<WriteWithoutResponse>Excluded</WriteWithoutResponse>
+				<SignedWrite>Excluded</SignedWrite>
+				<ReliableWrite>Excluded</ReliableWrite>
+				<Notify>Mandatory</Notify>
+				<Indicate>Excluded</Indicate>
+				<WritableAuxiliaries>Excluded</WritableAuxiliaries>
+				<Broadcast>Excluded</Broadcast>
+			</Properties>
+			<Descriptors>
+                <Descriptor name="Client Characteristic Configuration" type="org.bluetooth.descriptor.gatt.client_characteristic_configuration">
+                    <Requirement>Mandatory</Requirement>
+                    <Properties>
+                    <Read>Mandatory</Read>
+                    <Write>Mandatory</Write>
+                    </Properties>
+                </Descriptor>
+            </Descriptors>
+         </Characteristic>
+        
+        <Characteristic name="Control Point" type="org.bluetooth.characteristic.ancs.control_point">
+			<InformativeText></InformativeText>	
+			<Requirement>Optional</Requirement>
+			<Properties>
+				<Read>Excluded</Read>
+				<Write>Mandatory</Write>
+				<WriteWithoutResponse>Excluded</WriteWithoutResponse>
+				<SignedWrite>Excluded</SignedWrite>
+				<ReliableWrite>Excluded</ReliableWrite>
+				<Notify>Excluded</Notify>
+				<Indicate>Excluded</Indicate>
+				<WritableAuxiliaries>Excluded</WritableAuxiliaries>
+				<Broadcast>Excluded</Broadcast>
+			</Properties>
+		</Characteristic>
+		
+		<Characteristic name="Data Source" type="org.bluetooth.characteristic.ancs.data_source">
+            <InformativeText></InformativeText>
+			<Requirement>Optional</Requirement>
+			<Properties>
+				<Read>Excluded</Read>
+				<Write>Excluded</Write>
+				<WriteWithoutResponse>Excluded</WriteWithoutResponse>
+				<SignedWrite>Excluded</SignedWrite>
+				<ReliableWrite>Excluded</ReliableWrite>
+				<Notify>Mandatory</Notify>
+				<Indicate>Excluded</Indicate>
+				<WritableAuxiliaries>Excluded</WritableAuxiliaries>
+				<Broadcast>Excluded</Broadcast>
+			</Properties>
+			<Descriptors>
+                <Descriptor name="Client Characteristic Configuration" type="org.bluetooth.descriptor.gatt.client_characteristic_configuration">
+                    <Requirement>Mandatory</Requirement>
+                    <Properties>
+                    <Read>Mandatory</Read>
+                    <Write>Mandatory</Write>
+                    </Properties>
+                </Descriptor>
+           </Descriptors>
+         </Characteristic>
+	</Characteristics>
+</Service>

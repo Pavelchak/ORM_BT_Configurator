@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2011 Bluetooth SIG, Inc. All rights reserved. -->
+<Characteristic xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/characteristic.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="PRU Alert" type="org.bluetooth.characteristic.pru_alert" uuid="6455e670-a146-11e2-9e96-0800200c9a69">
+  <InformativeText>
+    <Abstract>
+		The PRU Alert characteristic enables a PTU to receive notifications or indications of the PRU Alert 11 characteristic from a PRU supporting this feature to show alerts (e.g., OVP, OCP, OTP and PRU Self 12 Protection).
+	</Abstract>
+    <Summary>            
+	</Summary>
+  </InformativeText>
+  <Value>
+    <Field name="PRU Alert">
+      <Requirement>Mandatory</Requirement>
+      <Format>8bit</Format>
+	    <BitField>
+	             <Bit index="0" size="2" name="Mode Transition">
+                    <Enumerations>
+                        <Enumeration key="0" value="No Mode Transition" />
+                        <Enumeration key="1" value="2s Mode Transition time limit" />
+					              <Enumeration key="2" value="3s Mode Transition time limit" />
+                        <Enumeration key="3" value="6s Mode Transition time limit" />
+                    </Enumerations>
+                </Bit>	
+                <Bit index="2" size="1" name="Wired Charger Detect">
+                    <Enumerations>
+                        <Enumeration key="0" value="No" />
+                        <Enumeration key="1" value="Yes" />
+                    </Enumerations>
+                </Bit>	
+				        <Bit index="3" size="1" name="Charge Complete">
+                    <Enumerations>
+                        <Enumeration key="0" value="No" />
+                        <Enumeration key="1" value="Yes" />
+                    </Enumerations>
+                </Bit>	
+				        <Bit index="4" size="1" name="PRU Self Protection">
+                    <Enumerations>
+                        <Enumeration key="0" value="No" />
+                        <Enumeration key="1" value="Yes" />
+                    </Enumerations>
+                </Bit>	
+				        <Bit index="5" size="1" name="PRU Over-Temperature">
+                    <Enumerations>
+                        <Enumeration key="0" value="No" />
+                        <Enumeration key="1" value="Yes" />
+                    </Enumerations>
+                </Bit>	
+				        <Bit index="6" size="1" name="PRU Over-Current">
+                    <Enumerations>
+                        <Enumeration key="0" value="No" />
+                        <Enumeration key="1" value="Yes" />
+                    </Enumerations>
+                </Bit>	
+				        <Bit index="7" size="1" name="PRU Over-Voltage">
+                    <Enumerations>
+                        <Enumeration key="0" value="No" />
+                        <Enumeration key="1" value="Yes" />
+                    </Enumerations>
+                </Bit>					
+      </BitField>
+    </Field>
+	<Field name="Device Address">
+      <Requirement>Optional</Requirement>
+      <Format>uint48</Format>
+    </Field>
+  </Value>
+</Characteristic>

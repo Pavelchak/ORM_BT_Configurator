@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2011 Bluetooth SIG, Inc. All rights reserved. -->
+<Service xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/service.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Bootloader" type="org.bluetooth.service.bootloader" uuid="00060000-F8CE-11E4-ABF4-0002A5D5C51B" >
+	<InformativeText>
+     <Abstract>
+	 </Abstract>
+     <Summary>
+	 </Summary>
+	</InformativeText>
+	<Dependencies>
+		<Dependency>This service has no dependencies on other GATT-based services.</Dependency>
+	</Dependencies>
+	<GATTRequirements>
+        <Requirement subProcedure="Notifications">Mandatory</Requirement>
+        <Requirement subProcedure="Write Long Characteristic Value">Mandatory</Requirement>
+	</GATTRequirements>
+	<Transports>
+		<Classic>true</Classic>
+		<LowEnergy>true</LowEnergy>
+	</Transports>
+	<ErrorCodes>
+	</ErrorCodes>
+	<Characteristics>
+		<Characteristic name="Packet" type="org.bluetooth.characteristic.bootloader_command">
+			<InformativeText>
+	        </InformativeText>		
+			<Requirement>Mandatory</Requirement>
+			<Properties>
+				<Read>Excluded</Read>
+				<Write>Mandatory</Write>
+				<WriteWithoutResponse>Mandatory</WriteWithoutResponse>
+				<SignedWrite>Excluded</SignedWrite>
+				<ReliableWrite>Excluded</ReliableWrite>
+				<Notify>Mandatory</Notify>
+				<Indicate>Excluded</Indicate>
+				<WritableAuxiliaries>Excluded</WritableAuxiliaries>
+				<Broadcast>Excluded</Broadcast>
+			</Properties>
+            <Descriptors>
+                <Descriptor name="Client Characteristic Configuration" type="org.bluetooth.descriptor.gatt.client_characteristic_configuration">
+                    <Requirement>Mandatory</Requirement>
+                    <Properties>
+                    <Read>Mandatory</Read>
+                    <Write>Mandatory</Write>
+                    </Properties>
+                </Descriptor>
+           </Descriptors>
+		</Characteristic>
+	</Characteristics>
+</Service>

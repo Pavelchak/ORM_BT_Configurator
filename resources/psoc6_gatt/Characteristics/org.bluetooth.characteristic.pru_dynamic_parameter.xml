@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2011 Bluetooth SIG, Inc. All rights reserved. -->
+<Characteristic xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/characteristic.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="PRU Dynamic Parameter" type="org.bluetooth.characteristic.pru_dynamic_parameter" uuid="6455e670-a146-11e2-9e96-0800200c9a6B">
+  <InformativeText>
+    <Abstract>
+		The PRU Dynamic Parameter characteristic contains measurement data with values that change during 10 the charging process on the PRU.
+	</Abstract>
+    <Summary>            
+	</Summary>
+  </InformativeText>
+  <Value>
+    <Field name="Optional fields validity">
+      <Requirement>Mandatory</Requirement>
+      <Format>8bit</Format>
+	    <BitField>
+        <Bit index="7" size="1" name="V_OUT">
+            <Enumerations>
+                <Enumeration key="0" value="V_OUT not present" />
+                <Enumeration key="1" value="V_OUT present" />
+            </Enumerations>
+        </Bit>
+        <Bit index="6" size="1" name="I_OUT">
+            <Enumerations>
+                <Enumeration key="0" value="I_OUT not present" />
+                <Enumeration key="1" value="I_OUT present" />
+            </Enumerations>
+        </Bit>	
+        <Bit index="5" size="1" name="Temperature">
+            <Enumerations>
+                <Enumeration key="0" value="Temperature not present" />
+                <Enumeration key="1" value="Temperature present" />
+            </Enumerations>
+        </Bit>	
+        <Bit index="4" size="1" name="V_RECT_MIN_DYN">
+            <Enumerations>
+                <Enumeration key="0" value="V_RECT_MIN_DYN not present" />
+                <Enumeration key="1" value="V_RECT_MIN_DYN present" />
+            </Enumerations>
+        </Bit>	
+        <Bit index="3" size="1" name="V_RECT_SET_DYN">
+            <Enumerations>
+                <Enumeration key="0" value="V_RECT_SET_DYN not present" />
+                <Enumeration key="1" value="V_RECT_SET_DYN present" />
+            </Enumerations>
+        </Bit>	           
+        <Bit index="2" size="1" name="V_RECT_HIGH_DYN">
+            <Enumerations>
+                <Enumeration key="0" value="V_RECT_HIGH_DYN not present" />
+                <Enumeration key="1" value="V_RECT_HIGH_DYN present" />
+            </Enumerations>
+        </Bit>	           
+	      <ReservedForFutureUse index="0" size="2"></ReservedForFutureUse>		
+      </BitField>
+    </Field>
+	<Field name="V_RECT">
+      <Requirement>Mandatory</Requirement>
+      <Format>uint16</Format>
+      <Unit>org.bluetooth.unit.electric_potential_difference.volt</Unit>
+      <DecimalExponent>-3</DecimalExponent>
+    </Field>
+	<Field name="I_RECT">
+      <Requirement>Mandatory</Requirement>
+      <Format>uint16</Format>
+      <Unit>org.bluetooth.unit.electric_current.ampere</Unit>
+      <DecimalExponent>-3</DecimalExponent>
+    </Field>	
+	<Field name="V_OUT">
+      <Requirement>Mandatory</Requirement>
+      <Format>uint16</Format>
+      <Unit>org.bluetooth.unit.electric_potential_difference.volt</Unit>
+      <DecimalExponent>-3</DecimalExponent>
+    </Field>
+	<Field name="I_OUT">
+      <Requirement>Mandatory</Requirement>
+      <Format>uint16</Format>
+      <Unit>org.bluetooth.unit.electric_current.ampere</Unit>
+      <DecimalExponent>-3</DecimalExponent>
+    </Field>
+	<Field name="Temperature">
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.thermodynamic_temperature.degree_celsius</Unit>
+    </Field>
+	<Field name="V_RECT_MIN_DYN">
+      <Requirement>Mandatory</Requirement>
+      <Format>uint16</Format>
+      <Unit>org.bluetooth.unit.electric_potential_difference.volt</Unit>
+      <DecimalExponent>-3</DecimalExponent>
+    </Field>
+	<Field name="V_RECT_SET_DYN">
+      <Requirement>Mandatory</Requirement>
+      <Format>uint16</Format>
+      <Unit>org.bluetooth.unit.electric_potential_difference.volt</Unit>
+      <DecimalExponent>-3</DecimalExponent>
+    </Field>
+	<Field name="V_RECT_HIGH_DYN">
+      <Requirement>Mandatory</Requirement>
+      <Format>uint16</Format>
+      <Unit>org.bluetooth.unit.electric_potential_difference.volt</Unit>
+      <DecimalExponent>-3</DecimalExponent>
+    </Field>
+	<Field name="PRU Alert">
+      <Requirement>Mandatory</Requirement>
+      <Format>8bit</Format>
+      <BitField>
+        <Bit index="7" size="1" name="Over-voltage">
+            <Enumerations>
+                <Enumeration key="0" value="false" />
+                <Enumeration key="1" value="true" />
+            </Enumerations>
+        </Bit>
+        <Bit index="6" size="1" name="Over-current">
+            <Enumerations>
+                <Enumeration key="0" value="false" />
+                <Enumeration key="1" value="true" />
+            </Enumerations>
+        </Bit>       
+        <Bit index="5" size="1" name="Over-temp">
+            <Enumerations>
+                <Enumeration key="0" value="false" />
+                <Enumeration key="1" value="true" />
+            </Enumerations>
+        </Bit>	
+        <Bit index="4" size="1" name="PRU Self Protection">
+            <Enumerations>
+                <Enumeration key="0" value="false" />
+                <Enumeration key="1" value="true" />
+            </Enumerations>
+        </Bit>	     
+        <Bit index="3" size="1" name="Charge Complete">
+            <Enumerations>
+                <Enumeration key="0" value="false" />
+                <Enumeration key="1" value="true" />
+            </Enumerations>
+        </Bit>	
+        <Bit index="2" size="1" name="Wired Charger Detect">
+            <Enumerations>
+                <Enumeration key="0" value="false" />
+                <Enumeration key="1" value="true" />
+            </Enumerations>
+        </Bit>	
+        <Bit index="1" size="1" name="PRU Charge Port">
+            <Enumerations>
+                <Enumeration key="0" value="false" />
+                <Enumeration key="1" value="true" />
+            </Enumerations>
+        </Bit>	  
+	      <ReservedForFutureUse index="0" size="1"></ReservedForFutureUse>	
+      </BitField>
+    </Field>
+    <Field name="Tester Command">
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Enumerations>
+          <Enumeration key="0" value="Normal operation power control" />
+          <Enumeration key="1" value="Increase I_TX by one step" />
+          <Enumeration key="2" value="Decrease I_TX by one step" />
+          <Enumeration key="3" value="I_TX_COIL current shall not be adjusted" />
+          <ReservedForFutureUse start="4" end="255" />
+      </Enumerations>
+    </Field>	
+	<Field name="Reserved for future use">
+      <Requirement>Mandatory</Requirement>
+	    <FillRequirement>C1</FillRequirement>
+      <Format>uint16</Format>
+    </Field>
+  </Value>
+</Characteristic>

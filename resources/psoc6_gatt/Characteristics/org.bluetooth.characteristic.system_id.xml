@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2011 Bluetooth SIG, Inc. All rights reserved. -->
+<Characteristic xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/characteristic.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="org.bluetooth.characteristic.system_id" uuid="2A23" name="System ID" last-modified="2011-05-24" approved="Yes">
+  <InformativeText>
+    <Abstract>
+	This is a 64-bit structure which consists of a 40-bit manufacturer-defined identifier concatenated with a 24 bit unique Organizationally Unique Identifier (OUI). 
+    </Abstract>
+    <Examples>
+      <Example>		
+If the system ID is based of a Bluetooth Device Address with a Company Identifier (OUI) is 0x123456 and the Company Assigned Identifier is 0x9ABCDE, then the System Identifier is required to be 0x123456FFFE9ABCDE.
+            </Example>
+    </Examples>
+  </InformativeText>
+  <Value>
+    <Field name="Manufacturer Identifier">
+      <InformativeText>	</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint40</Format>
+    </Field>
+    <Field name="Organizationally Unique Identifier">
+      <InformativeText>
+            
+		</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint24</Format>
+    </Field>
+  </Value>
+  
+    <Note>
+     The fields in the above table are in the order of LSO to MSO. Where LSO = Least Significant Octet and MSO = Most Significant Octet.
+    </Note>
+ 
+</Characteristic>

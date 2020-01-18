@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Service xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/service.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Custom Service" type="org.bluetooth.service.custom" uuid="00000000-0000-1000-8000-00805F9B34FB">
+	<InformativeText>
+     <Abstract>    
+		</Abstract>
+        <Summary>            
+		</Summary>
+	</InformativeText>
+	<Dependencies>
+		<Dependency>This service has no dependencies on other GATT-based services.</Dependency>
+	</Dependencies>
+	<GATTRequirements>
+	</GATTRequirements>
+	<Transports>
+		<Classic>true</Classic>
+		<LowEnergy>true</LowEnergy>
+	</Transports>
+	<ErrorCodes>
+	</ErrorCodes>
+	<Characteristics>
+    <Characteristic name="Custom Characteristic" type="org.bluetooth.characteristic.custom">
+            <Requirement>Optional</Requirement>
+            <Properties>              
+                <Read>Optional</Read>
+                <Write>Optional</Write>
+                <WriteWithoutResponse>Optional</WriteWithoutResponse>
+                <SignedWrite>Optional</SignedWrite>
+                <ReliableWrite>Optional</ReliableWrite>
+                <Notify>Optional</Notify>
+                <Indicate>Optional</Indicate>
+                <WritableAuxiliaries>Optional</WritableAuxiliaries>
+                <Broadcast>Optional</Broadcast>
+            </Properties>
+            <Descriptors>
+                <Descriptor name="Custom Descriptor" type="org.bluetooth.descriptor.custom">
+                    <Requirement>Optional</Requirement>
+                    <Properties>
+                        <Read>Optional</Read>
+                        <Write>Optional</Write>
+                    </Properties>
+                </Descriptor>
+            </Descriptors>
+        </Characteristic>
+	</Characteristics>
+</Service>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Copyright 2011 Bluetooth SIG, Inc. All rights reserved.-->
+<Characteristic xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/characteristic.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Resolvable Private Address Only" type="org.bluetooth.characteristic.gap.resolvable_private_address_only" uuid="2AC9" last-modified="2016-10-10" approved="Yes">
+    <InformativeText>
+        <Abstract>
+            Defines whether the device will only use Resolvable Private Addresses (RPAs) as local addresses.
+        </Abstract>
+    </InformativeText>
+    <Value>
+        <Field name="Resolvable Private Address Only">
+            <Requirement>Mandatory</Requirement>
+            <Format>uint8</Format>
+            <Enumerations>
+			          <Enumeration key="0" value="Yes" />
+                <Reserved start="1" end="255" />
+            </Enumerations>
+        </Field>
+    </Value>
+</Characteristic>

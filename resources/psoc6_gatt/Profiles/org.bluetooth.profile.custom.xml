@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2011 Bluetooth SIG, Inc. All rights reserved. -->
+<Profile xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/profile.xsd" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    type="org.bluetooth.profile.custom"
+    name="Custom">
+    <InformativeText>
+        <Abstract>
+		</Abstract>
+        <Summary> 
+		</Summary>
+	</InformativeText>
+	<Role name="Server"> 
+    <GapRole>Peripheral</GapRole>
+    <GapRole>Central</GapRole>
+    <GapRole>PeripheralAndCentral</GapRole>
+		<Service type="org.bluetooth.service.custom">
+			<Declaration>PrimarySingleInstance</Declaration>
+			<Requirement>Optional</Requirement>
+		</Service>
+	</Role>
+	<Role name="Client">
+    <GapRole>Central</GapRole>
+    <GapRole>Peripheral</GapRole>  
+    <GapRole>PeripheralAndCentral</GapRole>
+		<Client type="org.bluetooth.service.custom">
+			<Declaration>PrimarySingleInstance</Declaration>
+			<Requirement>Optional</Requirement>
+		</Client>
+	</Role>    
+    <Role name="Client and Server">
+		<Service type="org.bluetooth.service.custom">
+			<Declaration>PrimarySingleInstance</Declaration>
+			<Requirement>Optional</Requirement>
+		</Service>	
+		<Client type="org.bluetooth.service.custom">
+			<Declaration>PrimarySingleInstance</Declaration>
+			<Requirement>Optional</Requirement>
+		</Client>
+	</Role>
+</Profile>

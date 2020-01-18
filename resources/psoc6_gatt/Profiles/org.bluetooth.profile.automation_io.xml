@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2011 Bluetooth SIG, Inc. All rights reserved. -->
+<Profile xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/profile.xsd" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    type="org.bluetooth.profile.automation_io"
+    name="Automation IO">
+    <InformativeText>
+        <Abstract>
+            This profile enables a device to connect and interact with an Automation IO Module (IOM) in order to access digital and analog signals.
+		</Abstract>
+	</InformativeText>
+	<Role name="Automation IO Server">
+		<GapRole>Peripheral</GapRole>
+		<Service type="org.bluetooth.service.automation_io">
+			<Declaration>Primary</Declaration>
+			<Requirement>Mandatory</Requirement>
+		</Service>
+	</Role>
+	<Role name="Automation IO Client">
+		<GapRole>Central</GapRole>
+		<Client type="org.bluetooth.service.automation_io">
+			<Requirement>Mandatory</Requirement>
+		</Client>
+	</Role>
+</Profile>
